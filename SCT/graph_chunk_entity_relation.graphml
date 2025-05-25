@@ -1,0 +1,577 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d11" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d10" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d9" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d8" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d7" for="edge" attr.name="description" attr.type="string" />
+  <key id="d6" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="The Oxford College of Science">
+      <data key="d0">The Oxford College of Science</data>
+      <data key="d1">organization</data>
+      <data key="d2">A private college established in 1994, located in Bengaluru, India. It is affiliated with Bangalore University and offers undergraduate and postgraduate courses in various science disciplines.  The college is NAAC accredited with an 'A+' grade and approved by AICTE and UGC. It has various campus facilities including a library, laboratories, computer centers, auditorium, hostels, cafeteria, and sports facilities.  The college offers placement and career support services with an average package of approximately ₹5 LPA.  It has a student strength of approximately 3,000 and 97 faculty members.  The college has received various rankings and recognitions from publications like India Today and Outlook.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Bangalore University">
+      <data key="d0">Bangalore University</data>
+      <data key="d1">organization</data>
+      <data key="d2">A university in Bangalore, India, with which The Oxford College of Science is affiliated.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="NAAC">
+      <data key="d0">NAAC</data>
+      <data key="d1">organization</data>
+      <data key="d2">The National Assessment and Accreditation Council, which accredited The Oxford College of Science with an 'A+' grade.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="AICTE">
+      <data key="d0">AICTE</data>
+      <data key="d1">organization</data>
+      <data key="d2">The All India Council for Technical Education, which approved The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="UGC">
+      <data key="d0">UGC</data>
+      <data key="d1">organization</data>
+      <data key="d2">The University Grants Commission, which approved The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Bengaluru">
+      <data key="d0">Bengaluru</data>
+      <data key="d1">geo</data>
+      <data key="d2">The city in Karnataka, India, where The Oxford College of Science is located.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Karnataka">
+      <data key="d0">Karnataka</data>
+      <data key="d1">geo</data>
+      <data key="d2">The state in India where Bengaluru and The Oxford College of Science are located.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="India">
+      <data key="d0">India</data>
+      <data key="d1">geo</data>
+      <data key="d2">The country where The Oxford College of Science is located.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Biotechnology">
+      <data key="d0">Biotechnology</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Microbiology">
+      <data key="d0">Microbiology</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Genetics">
+      <data key="d0">Genetics</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Biochemistry">
+      <data key="d0">Biochemistry</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Computer Science">
+      <data key="d0">Computer Science</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Electronics">
+      <data key="d0">Electronics</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Mathematics">
+      <data key="d0">Mathematics</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Zoology">
+      <data key="d0">Zoology</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Chemistry">
+      <data key="d0">Chemistry</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate and postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Fashion and Apparel Design">
+      <data key="d0">Fashion and Apparel Design</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as an undergraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Applied Genetics">
+      <data key="d0">Applied Genetics</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as a postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Statistics">
+      <data key="d0">Statistics</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as a postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="English">
+      <data key="d0">English</data>
+      <data key="d1">category</data>
+      <data key="d2">A field of study offered as a postgraduate program at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="India Today">
+      <data key="d0">India Today</data>
+      <data key="d1">organization</data>
+      <data key="d2">A publication that ranked The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Outlook">
+      <data key="d0">Outlook</data>
+      <data key="d1">organization</data>
+      <data key="d2">A publication that ranked The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Biocon">
+      <data key="d0">Biocon</data>
+      <data key="d1">organization</data>
+      <data key="d2">A company that recruits from The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="Omega">
+      <data key="d0">Omega</data>
+      <data key="d1">organization</data>
+      <data key="d2">A company that recruits from The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="B.Sc.">
+      <data key="d0">B.Sc.</data>
+      <data key="d1">category</data>
+      <data key="d2">Bachelor of Science, an undergraduate program offered by The Oxford College of Science in various specializations.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="B.C.A.">
+      <data key="d0">B.C.A.</data>
+      <data key="d1">category</data>
+      <data key="d2">Bachelor of Computer Applications, an undergraduate program offered by The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="M.Sc.">
+      <data key="d0">M.Sc.</data>
+      <data key="d1">category</data>
+      <data key="d2">Master of Science, a postgraduate program offered by The Oxford College of Science in various specializations.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="M.C.A.">
+      <data key="d0">M.C.A.</data>
+      <data key="d1">category</data>
+      <data key="d2">Master of Computer Applications, a postgraduate program offered by The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="M.A. in English">
+      <data key="d0">M.A. in English</data>
+      <data key="d1">category</data>
+      <data key="d2">Master of Arts in English, a postgraduate program offered by The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="PG Diploma (BiSEP-BTFS)">
+      <data key="d0">PG Diploma (BiSEP-BTFS)</data>
+      <data key="d1">category</data>
+      <data key="d2">Postgraduate Diploma in BiSEP-BTFS, a postgraduate program offered by The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="KMAT">
+      <data key="d0">KMAT</data>
+      <data key="d1">event</data>
+      <data key="d2">An entrance exam whose scores are accepted for postgraduate admissions at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <node id="PGCET">
+      <data key="d0">PGCET</data>
+      <data key="d1">event</data>
+      <data key="d2">An entrance exam whose scores are accepted for postgraduate admissions at The Oxford College of Science.</data>
+      <data key="d3">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1748157455</data>
+    </node>
+    <edge source="The Oxford College of Science" target="Bangalore University">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science is affiliated with Bangalore University.</data>
+      <data key="d8">affiliation,higher education</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="NAAC">
+      <data key="d6">10.0</data>
+      <data key="d7">The Oxford College of Science is accredited by NAAC with an 'A+' grade.</data>
+      <data key="d8">accreditation,quality assurance</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="AICTE">
+      <data key="d6">8.0</data>
+      <data key="d7">The Oxford College of Science is approved by AICTE.</data>
+      <data key="d8">approval,regulatory compliance</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="UGC">
+      <data key="d6">8.0</data>
+      <data key="d7">The Oxford College of Science is approved by UGC.</data>
+      <data key="d8">approval,regulatory compliance</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="Bengaluru">
+      <data key="d6">10.0</data>
+      <data key="d7">The Oxford College of Science is located in Bengaluru.</data>
+      <data key="d8">geography,location</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="Karnataka">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science is located in Karnataka.</data>
+      <data key="d8">geography,location</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="India">
+      <data key="d6">10.0</data>
+      <data key="d7">The Oxford College of Science is located in India.</data>
+      <data key="d8">geography,location</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="Biocon">
+      <data key="d6">7.0</data>
+      <data key="d7">Biocon is a top recruiter for The Oxford College of Science.</data>
+      <data key="d8">placement,recruitment</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="Omega">
+      <data key="d6">7.0</data>
+      <data key="d7">Omega is a top recruiter for The Oxford College of Science.</data>
+      <data key="d8">placement,recruitment</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="India Today">
+      <data key="d6">8.0</data>
+      <data key="d7">India Today ranked The Oxford College of Science.</data>
+      <data key="d8">ranking,recognition</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="Outlook">
+      <data key="d6">8.0</data>
+      <data key="d7">Outlook ranked The Oxford College of Science.</data>
+      <data key="d8">ranking,recognition</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="KMAT">
+      <data key="d6">7.0</data>
+      <data key="d7">KMAT scores are accepted for postgraduate admissions at The Oxford College of Science.</data>
+      <data key="d8">admission requirements,higher education</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="PGCET">
+      <data key="d6">7.0</data>
+      <data key="d7">PGCET scores are accepted for postgraduate admissions at The Oxford College of Science.</data>
+      <data key="d8">admission requirements,higher education</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="B.Sc.">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a B.Sc. program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="B.C.A.">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a B.C.A. program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="M.Sc.">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a M.Sc. program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="M.C.A.">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a M.C.A. program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="M.A. in English">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a M.A. in English program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="The Oxford College of Science" target="PG Diploma (BiSEP-BTFS)">
+      <data key="d6">9.0</data>
+      <data key="d7">The Oxford College of Science offers a PG Diploma (BiSEP-BTFS) program.</data>
+      <data key="d8">higher education,program offering</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Biotechnology" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Biotechnology is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Biotechnology" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Biotechnology is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Microbiology" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Microbiology is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Microbiology" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Microbiology is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Genetics" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Genetics is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Biochemistry" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Biochemistry is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Biochemistry" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Biochemistry is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Computer Science" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Computer Science is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Computer Science" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Computer Science is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Electronics" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Electronics is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Mathematics" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Mathematics is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Mathematics" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Mathematics is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Zoology" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Zoology is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Chemistry" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Chemistry is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Chemistry" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Chemistry is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Fashion and Apparel Design" target="B.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Fashion and Apparel Design is a specialization within the B.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Applied Genetics" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Applied Genetics is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+    <edge source="Statistics" target="M.Sc.">
+      <data key="d6">8.0</data>
+      <data key="d7">Statistics is a specialization within the M.Sc. program.</data>
+      <data key="d8">curriculum,specialization</data>
+      <data key="d9">chunk-d9d95fdaf3a567034e4f4164f9d032d5</data>
+      <data key="d10">unknown_source</data>
+      <data key="d11">1748157455</data>
+    </edge>
+  </graph>
+</graphml>
