@@ -25,8 +25,8 @@ if ($Help) {
 # Set execution policy for current session
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-Write-Host "🚀 Oxford College Chatbot - Automated Setup" -ForegroundColor Cyan
-Write-Host "=============================================" -ForegroundColor Cyan
+Write-Host "Oxford College Chatbot - Automated Setup" -ForegroundColor Cyan
+Write-Host "=========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Function to check if a command exists
@@ -41,75 +41,80 @@ function Test-Command {
     }
 }
 
+# Function to refresh environment variables
+function Update-EnvironmentPath {
+    $machinePath = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
+    $userPath = [System.Environment]::GetEnvironmentVariable("Path", "User")
+    $env:Path = $machinePath + ";" + $userPath
+}
+
 # Function to install Chocolatey
 function Install-Chocolatey {
-    Write-Host "📦 Installing Chocolatey package manager..." -ForegroundColor Yellow
+    Write-Host "Installing Chocolatey package manager..." -ForegroundColor Yellow
     try {
         Set-ExecutionPolicy Bypass -Scope Process -Force
         [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
         Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-        Write-Host "✅ Chocolatey installed successfully!" -ForegroundColor Green
-        # Refresh environment variables
-        $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+        Write-Host "SUCCESS: Chocolatey installed successfully!" -ForegroundColor Green
+        Update-EnvironmentPath
+        return $true
     }
     catch {
-        Write-Host "❌ Failed to install Chocolatey: $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "ERROR: Failed to install Chocolatey: $($_.Exception.Message)" -ForegroundColor Red
         Write-Host "Please install Chocolatey manually from https://chocolatey.org/install" -ForegroundColor Yellow
         return $false
     }
-    return $true
 }
 
 # Check and install Python
 if (-not $SkipPython) {
-    Write-Host "🐍 Checking Python installation..." -ForegroundColor Yellow
+    Write-Host "Checking Python installation..." -ForegroundColor Yellow
     
     if (Test-Command python) {
         $pythonVersion = python --version 2>&1
-        Write-Host "✅ Python found: $pythonVersion" -ForegroundColor Green
+        Write-Host "SUCCESS: Python found: $pythonVersion" -ForegroundColor Green
     }
     elseif (Test-Command python3) {
         $pythonVersion = python3 --version 2>&1
-        Write-Host "✅ Python3 found: $pythonVersion" -ForegroundColor Green
+        Write-Host "SUCCESS: Python3 found: $pythonVersion" -ForegroundColor Green
         # Create alias for python command
         Set-Alias -Name python -Value python3
     }
     else {
-        Write-Host "❌ Python not found. Installing Python..." -ForegroundColor Red
+        Write-Host "ERROR: Python not found. Installing Python..." -ForegroundColor Red
         
         # Check if Chocolatey is installed
         if (-not (Test-Command choco)) {
             if (-not (Install-Chocolatey)) {
-                Write-Host "❌ Cannot proceed without Chocolatey. Please install Python manually." -ForegroundColor Red
+                Write-Host "ERROR: Cannot proceed without Chocolatey. Please install Python manually." -ForegroundColor Red
                 exit 1
             }
         }
         
         try {
             choco install python -y
-            Write-Host "✅ Python installed successfully!" -ForegroundColor Green
-            # Refresh environment variables
-            $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+            Write-Host "SUCCESS: Python installed successfully!" -ForegroundColor Green
+            Update-EnvironmentPath
         }
         catch {
-            Write-Host "❌ Failed to install Python. Please install manually from python.org" -ForegroundColor Red
+            Write-Host "ERROR: Failed to install Python. Please install manually from python.org" -ForegroundColor Red
             exit 1
         }
     }
     
     # Check pip
-    Write-Host "📦 Checking pip..." -ForegroundColor Yellow
+    Write-Host "Checking pip..." -ForegroundColor Yellow
     if (Test-Command pip) {
-        Write-Host "✅ pip is available" -ForegroundColor Green
+        Write-Host "SUCCESS: pip is available" -ForegroundColor Green
     }
     else {
-        Write-Host "❌ pip not found. Installing pip..." -ForegroundColor Red
+        Write-Host "ERROR: pip not found. Installing pip..." -ForegroundColor Red
         try {
             python -m ensurepip --upgrade
-            Write-Host "✅ pip installed successfully!" -ForegroundColor Green
+            Write-Host "SUCCESS: pip installed successfully!" -ForegroundColor Green
         }
         catch {
-            Write-Host "❌ Failed to install pip. Please install manually." -ForegroundColor Red
+            Write-Host "ERROR: Failed to install pip. Please install manually." -ForegroundColor Red
             exit 1
         }
     }
@@ -117,68 +122,67 @@ if (-not $SkipPython) {
 
 # Check and install Node.js (optional, for separate React app)
 if (-not $SkipNode -and $CreateReactApp) {
-    Write-Host "🟢 Checking Node.js installation..." -ForegroundColor Yellow
+    Write-Host "Checking Node.js installation..." -ForegroundColor Yellow
     
     if (Test-Command node) {
         $nodeVersion = node --version
-        Write-Host "✅ Node.js found: $nodeVersion" -ForegroundColor Green
+        Write-Host "SUCCESS: Node.js found: $nodeVersion" -ForegroundColor Green
     }
     else {
-        Write-Host "❌ Node.js not found. Installing Node.js..." -ForegroundColor Red
+        Write-Host "ERROR: Node.js not found. Installing Node.js..." -ForegroundColor Red
         
         # Check if Chocolatey is installed
         if (-not (Test-Command choco)) {
             if (-not (Install-Chocolatey)) {
-                Write-Host "❌ Cannot proceed without Chocolatey. Please install Node.js manually." -ForegroundColor Red
+                Write-Host "ERROR: Cannot proceed without Chocolatey. Please install Node.js manually." -ForegroundColor Red
                 exit 1
             }
         }
         
         try {
             choco install nodejs -y
-            Write-Host "✅ Node.js installed successfully!" -ForegroundColor Green
-            # Refresh environment variables
-            $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+            Write-Host "SUCCESS: Node.js installed successfully!" -ForegroundColor Green
+            Update-EnvironmentPath
         }
         catch {
-            Write-Host "❌ Failed to install Node.js. Please install manually from nodejs.org" -ForegroundColor Red
+            Write-Host "ERROR: Failed to install Node.js. Please install manually from nodejs.org" -ForegroundColor Red
             exit 1
         }
     }
 }
 
 # Create virtual environment
-Write-Host "🔧 Setting up Python virtual environment..." -ForegroundColor Yellow
+Write-Host "Setting up Python virtual environment..." -ForegroundColor Yellow
 try {
     if (Test-Path "venv") {
-        Write-Host "📁 Virtual environment already exists. Activating..." -ForegroundColor Blue
+        Write-Host "INFO: Virtual environment already exists. Activating..." -ForegroundColor Blue
     }
     else {
         python -m venv venv
-        Write-Host "✅ Virtual environment created!" -ForegroundColor Green
+        Write-Host "SUCCESS: Virtual environment created!" -ForegroundColor Green
     }
     
     # Activate virtual environment
     & .\venv\Scripts\Activate.ps1
-    Write-Host "✅ Virtual environment activated!" -ForegroundColor Green
+    Write-Host "SUCCESS: Virtual environment activated!" -ForegroundColor Green
 }
 catch {
-    Write-Host "❌ Failed to create virtual environment: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "ERROR: Failed to create virtual environment: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host "Continuing with global Python installation..." -ForegroundColor Yellow
 }
 
 # Upgrade pip
-Write-Host "⬆️ Upgrading pip..." -ForegroundColor Yellow
+Write-Host "Upgrading pip..." -ForegroundColor Yellow
 try {
     python -m pip install --upgrade pip
-    Write-Host "✅ pip upgraded successfully!" -ForegroundColor Green
+    Write-Host "SUCCESS: pip upgraded successfully!" -ForegroundColor Green
 }
 catch {
-    Write-Host "⚠️ Warning: Failed to upgrade pip" -ForegroundColor Yellow
+    Write-Host "WARNING: Failed to upgrade pip" -ForegroundColor Yellow
 }
 
 # Install Python packages
-Write-Host "📦 Installing Python dependencies..." -ForegroundColor Yellow
+Write-Host "Installing Python dependencies..." -ForegroundColor Yellow
 
 $packages = @(
     "Flask==2.3.3",
@@ -197,10 +201,10 @@ foreach ($package in $packages) {
     Write-Host "  Installing $package..." -ForegroundColor White
     try {
         python -m pip install $package
-        Write-Host "  ✅ $package installed" -ForegroundColor Green
+        Write-Host "  SUCCESS: $package installed" -ForegroundColor Green
     }
     catch {
-        Write-Host "  ❌ Failed to install $package" -ForegroundColor Red
+        Write-Host "  ERROR: Failed to install $package" -ForegroundColor Red
         $failedPackages += $package
     }
 }
@@ -208,7 +212,7 @@ foreach ($package in $packages) {
 # Check for failed packages
 if ($failedPackages.Count -gt 0) {
     Write-Host ""
-    Write-Host "⚠️ Some packages failed to install:" -ForegroundColor Yellow
+    Write-Host "WARNING: Some packages failed to install:" -ForegroundColor Yellow
     foreach ($pkg in $failedPackages) {
         Write-Host "  - $pkg" -ForegroundColor Red
     }
@@ -219,10 +223,10 @@ if ($failedPackages.Count -gt 0) {
         Write-Host "Retrying $pkg..." -ForegroundColor White
         try {
             python -m pip install $pkg --no-cache-dir
-            Write-Host "✅ $pkg installed on retry" -ForegroundColor Green
+            Write-Host "SUCCESS: $pkg installed on retry" -ForegroundColor Green
         }
         catch {
-            Write-Host "❌ $pkg still failed. You may need to install it manually." -ForegroundColor Red
+            Write-Host "ERROR: $pkg still failed. You may need to install it manually." -ForegroundColor Red
         }
     }
 }
@@ -230,29 +234,29 @@ if ($failedPackages.Count -gt 0) {
 # Create React app (optional)
 if ($CreateReactApp) {
     Write-Host ""
-    Write-Host "⚛️ Creating React application..." -ForegroundColor Yellow
+    Write-Host "Creating React application..." -ForegroundColor Yellow
     
     if (Test-Command npx) {
         try {
             npx create-react-app oxford-chatbot
             Set-Location oxford-chatbot
             npm install lucide-react
-            Write-Host "✅ React app created successfully!" -ForegroundColor Green
-            Write-Host "📁 React app location: $(Get-Location)" -ForegroundColor Blue
+            Write-Host "SUCCESS: React app created successfully!" -ForegroundColor Green
+            Write-Host "INFO: React app location: $(Get-Location)" -ForegroundColor Blue
             Set-Location ..
         }
         catch {
-            Write-Host "❌ Failed to create React app: $($_.Exception.Message)" -ForegroundColor Red
+            Write-Host "ERROR: Failed to create React app: $($_.Exception.Message)" -ForegroundColor Red
         }
     }
     else {
-        Write-Host "❌ npx not found. Cannot create React app." -ForegroundColor Red
+        Write-Host "ERROR: npx not found. Cannot create React app." -ForegroundColor Red
     }
 }
 
 # Create .env template
 Write-Host ""
-Write-Host "📝 Creating .env template..." -ForegroundColor Yellow
+Write-Host "Creating .env template..." -ForegroundColor Yellow
 
 $envTemplate = @"
 # Oxford College Chatbot Environment Variables
@@ -272,17 +276,17 @@ REACT_PORT=3000
 
 try {
     $envTemplate | Out-File -FilePath ".env.template" -Encoding UTF8
-    Write-Host "✅ .env template created!" -ForegroundColor Green
-    Write-Host "📝 Please copy .env.template to .env and add your GEMINI_API_KEY" -ForegroundColor Blue
+    Write-Host "SUCCESS: .env template created!" -ForegroundColor Green
+    Write-Host "INFO: Please copy .env.template to .env and add your GEMINI_API_KEY" -ForegroundColor Blue
 }
 catch {
-    Write-Host "⚠️ Could not create .env template" -ForegroundColor Yellow
+    Write-Host "WARNING: Could not create .env template" -ForegroundColor Yellow
 }
 
 # Final summary
 Write-Host ""
-Write-Host "🎉 Setup Complete!" -ForegroundColor Green
-Write-Host "=================" -ForegroundColor Green
+Write-Host "SETUP COMPLETE!" -ForegroundColor Green
+Write-Host "===============" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
 Write-Host "1. Copy .env.template to .env and add your GEMINI_API_KEY" -ForegroundColor White
@@ -298,21 +302,21 @@ else {
 }
 
 Write-Host ""
-Write-Host "🔧 To activate virtual environment later, run:" -ForegroundColor Yellow
+Write-Host "To activate virtual environment later, run:" -ForegroundColor Yellow
 Write-Host "   .\venv\Scripts\Activate.ps1" -ForegroundColor White
 Write-Host ""
-Write-Host "📚 For troubleshooting, see the setup instructions document" -ForegroundColor Blue
+Write-Host "For troubleshooting, see the setup instructions document" -ForegroundColor Blue
 
 # Test installations
 Write-Host ""
-Write-Host "🧪 Testing installations..." -ForegroundColor Yellow
+Write-Host "Testing installations..." -ForegroundColor Yellow
 
 Write-Host "Python version: " -NoNewline
 try {
     python --version
 }
 catch {
-    Write-Host "❌ Python test failed" -ForegroundColor Red
+    Write-Host "ERROR: Python test failed" -ForegroundColor Red
 }
 
 Write-Host "Pip version: " -NoNewline
@@ -320,7 +324,7 @@ try {
     python -m pip --version
 }
 catch {
-    Write-Host "❌ Pip test failed" -ForegroundColor Red
+    Write-Host "ERROR: Pip test failed" -ForegroundColor Red
 }
 
 if ($CreateReactApp -and (Test-Command node)) {
@@ -331,4 +335,4 @@ if ($CreateReactApp -and (Test-Command node)) {
 }
 
 Write-Host ""
-Write-Host "🚀 Ready to launch your Oxford College Chatbot!" -ForegroundColor Green
+Write-Host "Ready to launch your Oxford College Chatbot!" -ForegroundColor Green
