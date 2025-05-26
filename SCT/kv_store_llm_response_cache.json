@@ -100,6 +100,42 @@
       "embedding_min": null,
       "embedding_max": null,
       "original_prompt": "who is the principal of the college"
+    },
+    "a579fa35a40e60c1bc9549308246313c": {
+      "return": "{\"high_level_keywords\": [\"College location\", \"Geographic location\"], \"low_level_keywords\": [\"College\", \"University\", \"Address\", \"City\", \"State\", \"Country\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "where is the college located"
+    },
+    "b6b629f1ff8027e69f87d2f73d625a10": {
+      "return": "The Oxford College of Science is located at No. 32, 17th B Main, Sector IV, HSR Layout, Bengaluru - 560102, Karnataka, India.\n",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "where is the college located"
+    },
+    "739036ea7184d33f7a768da9723670c6": {
+      "return": "{\"high_level_keywords\": [\"Course offerings\", \"Education\"], \"low_level_keywords\": [\"Courses\"]}",
+      "cache_type": "keywords",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what are the courses offered"
+    },
+    "97e187c85ac771338db9e3497a8f90aa": {
+      "return": "The Oxford College of Science offers a range of undergraduate and postgraduate programs.\n\n**Undergraduate Programs:**\n\n*   B.Sc. (Bachelor of Science):  Specializations include Biotechnology, Microbiology, Genetics, Biochemistry, Computer Science, Electronics, Mathematics, Zoology, Chemistry, and Fashion and Apparel Design.\n*   B.C.A. (Bachelor of Computer Applications)\n\n**Postgraduate Programs:**\n\n*   M.Sc. (Master of Science): Specializations include Biotechnology, Microbiology, Applied Genetics, Biochemistry, Computer Science, Mathematics, Statistics, and Chemistry.\n*   M.C.A. (Master of Computer Applications)\n*   M.A. in English\n\n\n  \nReferences:\n\n[DC] unknown_source\n",
+      "cache_type": "query",
+      "embedding": null,
+      "embedding_shape": null,
+      "embedding_min": null,
+      "embedding_max": null,
+      "original_prompt": "what are the courses offered"
     }
   }
 }
