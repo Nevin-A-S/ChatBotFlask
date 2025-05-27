@@ -191,7 +191,7 @@ $packages = @(
     "google-generativeai",
     "python-dotenv",
     "sentence-transformers",
-    "lightrag",
+    "lightrag-hku",
     "nest-asyncio"
 )
 
