@@ -1,0 +1,18 @@
+[project]
+name = "chatbotflask"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "flask==2.3.3",
+    "flask-cors==4.0.0",
+    "google-genai>=1.74.0",
+    "groq>=0.11.0",
+    "lightrag-hku>=1.4.15",
+    "nest-asyncio>=1.6.0",
+    "numpy>=1.24.0",
+    "pytest>=9.0.3",
+    "python-dotenv>=1.2.2",
+    "sentence-transformers>=5.4.1",
+]

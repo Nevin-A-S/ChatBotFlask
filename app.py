@@ -8,8 +8,10 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from rag import return_response
-except ImportError as e:
+except Exception as e:
+    import traceback
     print(f"Error importing rag module: {e}")
+    traceback.print_exc()
     print("Make sure rag.py is in the same directory as this Flask app")
     
     def return_response(query):
