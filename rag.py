@@ -1,6 +1,7 @@
 import os
 import threading
 import numpy as np
+import time
 from google import genai
 from google.genai import types
 from groq import Groq
@@ -15,6 +16,17 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+LLM_MAX_OUTPUT_TOKENS = int(os.getenv("LLM_MAX_OUTPUT_TOKENS", "1500"))
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GEMINI_COOLDOWN_SECONDS = int(os.getenv("GEMINI_COOLDOWN_SECONDS", "300"))
+RAG_QUERY_TIMEOUT_SECONDS = int(os.getenv("RAG_QUERY_TIMEOUT_SECONDS", "240"))
+RAG_TOP_K = int(os.getenv("RAG_TOP_K", "3"))
+RAG_HISTORY_TURNS = int(os.getenv("RAG_HISTORY_TURNS", "3"))
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+)
 
 SYSTEM_PROMPT_RAG = """
 College Overview (for grounding)
@@ -155,12 +167,33 @@ def _build_combined_prompt(prompt: str, system_prompt: str | None, history_messa
     return "\n".join(parts)
 
 
+_gemini_disabled_until = 0.0
+
+
+def _gemini_available() -> bool:
+    return client is not None and time.monotonic() >= _gemini_disabled_until
+
+
+def _cool_down_gemini(error: Exception):
+    global _gemini_disabled_until
+    error_text = str(error).lower()
+    if "429" in error_text or "resource_exhausted" in error_text or "quota" in error_text:
+        _gemini_disabled_until = time.monotonic() + GEMINI_COOLDOWN_SECONDS
+        logger.warning(
+            "Gemini quota/rate limit detected. Skipping Gemini for %s seconds.",
+            GEMINI_COOLDOWN_SECONDS,
+        )
+
+
 async def _call_gemini(combined_prompt: str) -> str:
     """Call Gemini and return the text response. Raises on any error."""
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model=GEMINI_MODEL,
         contents=[combined_prompt],
-        config=types.GenerateContentConfig(max_output_tokens=5000, temperature=0.1),
+        config=types.GenerateContentConfig(
+            max_output_tokens=LLM_MAX_OUTPUT_TOKENS,
+            temperature=0.1,
+        ),
     )
     return response.text
 
@@ -179,9 +212,9 @@ async def _call_groq(prompt: str, system_prompt: str | None, history_messages: l
     completion = await loop.run_in_executor(
         None,
         lambda: groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=GROQ_MODEL,
             messages=messages,
-            max_tokens=5000,
+            max_tokens=LLM_MAX_OUTPUT_TOKENS,
             temperature=0.1,
         ),
     )
@@ -195,14 +228,17 @@ async def llm_model_func(
         history_messages = []
 
     # ── Try Gemini first ──────────────────────────────────────────────────────
-    if client is not None:
+    if _gemini_available():
         try:
             combined_prompt = _build_combined_prompt(prompt, system_prompt, history_messages)
             result = await _call_gemini(combined_prompt)
             logger.debug("Response from Gemini.")
             return result
         except Exception as gemini_err:
+            _cool_down_gemini(gemini_err)
             logger.warning(f"Gemini failed ({type(gemini_err).__name__}: {gemini_err}). Trying Groq fallback...")
+    elif client is not None:
+        logger.info("Skipping Gemini while cooldown is active. Using Groq fallback.")
 
     # ── Groq fallback ─────────────────────────────────────────────────────────
     if groq_client is not None:
@@ -217,8 +253,22 @@ async def llm_model_func(
     return "Error: No LLM available. Please check GEMINI_API_KEY and GROQ_API_KEY."
 
 
+_embedding_model: SentenceTransformer | None = None
+_embedding_model_lock = threading.Lock()
+
+
+def get_embedding_model() -> SentenceTransformer:
+    global _embedding_model
+    if _embedding_model is None:
+        with _embedding_model_lock:
+            if _embedding_model is None:
+                logger.info("Loading embedding model: %s", EMBEDDING_MODEL)
+                _embedding_model = SentenceTransformer(EMBEDDING_MODEL)
+    return _embedding_model
+
+
 async def embedding_func(texts: list[str]) -> np.ndarray:
-    model = SentenceTransformer("all-MiniLM-L6-v2")
+    model = get_embedding_model()
     embeddings = model.encode(texts, convert_to_numpy=True)
     return embeddings
 
@@ -317,9 +367,9 @@ async def _do_query(rag_instance: LightRAG, query: str) -> str:
         query=query,
         param=QueryParam(
             mode="hybrid",
-            top_k=5,
+            top_k=RAG_TOP_K,
             conversation_history=list(CONVERSATION_HISTORY),
-            history_turns=5,
+            history_turns=RAG_HISTORY_TURNS,
             user_prompt=SYSTEM_PROMPT_RAG,
         ),
     )
@@ -334,10 +384,20 @@ def return_response(query: str) -> str:
             "Please check the server configuration."
         )
 
-    response = _run_async(_do_query(rag_instance, query))
+    response = _run_async(_do_query(rag_instance, query), timeout=RAG_QUERY_TIMEOUT_SECONDS)
     logger.info(f"Response: {response}")
     add_to_conversation_history(query, response)
     return response
+
+
+def warm_up():
+    """Load long-lived RAG and embedding resources before the first user request."""
+    try:
+        get_rag()
+        get_embedding_model()
+        logger.info("RAG warmup complete.")
+    except Exception as e:
+        logger.warning("RAG warmup failed: %s", e)
 
 
 def main():
